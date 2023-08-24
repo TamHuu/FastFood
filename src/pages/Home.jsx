@@ -15,8 +15,10 @@ import foodCategoryImg01 from "../assets/images/hamburger.png"
 import foodCategoryImg02 from "../assets/images/pizza.png"
 import foodCategoryImg03 from "../assets/images/bread.png"
 import WhyImg from '../assets/images/location.png'
+import networkImg from "../assets/images/network.png"
 import "../styles/home.css"
 import ProductCart from "../components/UI/product-cart/ProductCart";
+import TestimonialSlider from "../components/UI/slider/TestimonialSlider";
 const Home = () => {
   const [category, setCategory] = useState('All')
   const [allProducts, setAllProducts] = useState(products)
@@ -84,7 +86,7 @@ const Home = () => {
                   </button>
                   <button className="order__btn  ">
                     <Link to="/pizzas">
-                      Menu <i className="ri-arrow-right-s-line"></i>
+                      See all foods
                     </Link>
 
                   </button>
@@ -116,7 +118,7 @@ const Home = () => {
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, dolorum!</p>
             </Col>
             {featureData.map((item, index) => (
-              <Col lg="4" md="4" key={index} className="mt-5">
+              <Col lg="4" md="6" sm="6" key={index} className="mt-5">
                 <div className="feature__item text-center px-5 py-3">
                   <img src={item.imgUrl} alt="feature-img" className="w-25 mb-3"/>
                   <h5 className="fw-bold mb-3">{item.title}</h5>
@@ -148,7 +150,7 @@ const Home = () => {
               </div>
             </Col>
             {allProducts.map((item, index) => (
-              <Col lg="3" md="4" key={index} className="mt-5">
+              <Col lg="3" md="4" sm="6" xs="6" key={index} className="mt-5">
                 <ProductCart item={item} />
               </Col>
             ))}
@@ -204,6 +206,32 @@ const Home = () => {
               </Col>
               ))}
 
+          </Row>
+        </Container>
+      </section>
+
+      {/* Carousel */}
+      <section>
+        <Container>
+          <Row>
+             <Col lg="6" md="6">
+
+              <div className="testimonial ">
+                <h5 className="testimonial__subtitle mb-4">
+                  Testionial
+                </h5>
+                <h2 className="testimonial__title mb-4">
+                  What our <span>customers</span> are saying
+                </h2>
+                <p className="testimonial__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem similique officiis provident, odit, dicta iure, id earum porro vel veritatis hic. Sunt, neque! Sunt commodi nostrum voluptate provident aspernatur repudiandae?</p>
+             <TestimonialSlider/>
+              </div>
+            </Col>
+              <Col lg="6" md="6">
+              <img src={networkImg} alt="" className="w-100"/>
+              </Col>
+           
+          
           </Row>
         </Container>
       </section>

@@ -1,4 +1,4 @@
-.food__category{
+.food__category {
     background: #df2020;
     text-align: center;
     margin-top: 30px;
@@ -6,31 +6,93 @@
     border-radius: 8px;
 }
 
-.food__category button{
+.food__category button {
     border: none;
     outline: none;
     padding: 7px 20px;
     background: transparent;
 }
-.food__category button img{
+
+.food__category button img {
     width: 15px;
     height: 15px;
 }
-.foodBtnActive{
+
+.foodBtnActive {
     background: #fff !important;
     border-radius: 5px;
 }
 
-.tasty__treat-title span{
-    color:#df2020
+.tasty__treat-title span {
+    color: #df2020
 }
-.why__tasty-desc{
+
+.why__tasty-desc {
     color: #777;
     line-height: 28px;
 }
 
-.choose__us-title{
+.choose__us-title {
     font-weight: 500 !important;
     color: #df2020;
 }
 
+.testimonial__subtitle {
+    color: #df2020
+}
+
+.testimonial__title span {
+    color: #df2020
+}
+
+.testimonial__desc {
+    color: #777;
+    line-height: 30px;
+}
+
+@media only screen and (max-width:576px) {
+    .hero__content {
+        text-align: center;
+    }
+
+    .hero__content h5 {
+        font-size: 1rem;
+
+    }
+
+    .hero__content p {
+        font-size: 0.8rem;
+        line-height: 25px;
+
+    }
+
+    .hero__title {
+        font-size: 1.5rem;
+        list-style: 40px;
+    }
+}
+
+@media only screen and (max-width:768) {
+    .feature__item p {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+    }
+
+    .feature__subtitle {
+        font-size: 1rem;
+
+    }
+
+    .feature__text {
+        font-size: 1rem;
+        margin-bottom: 0;
+        ;
+    }
+    .food__category{
+        padding: 15px;
+    }
+        .food__category button{
+            padding:5px 15px;
+            font-size: 0.7rem;
+        }
+}
