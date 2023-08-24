@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import Helmet from '../components/Helmet/Helmet'
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 
 import { Link } from "react-router-dom";
 import Category from "../components/UI/category/Category";
@@ -14,11 +14,19 @@ import products from "../assets/fake-data/products.js"
 import foodCategoryImg01 from "../assets/images/hamburger.png"
 import foodCategoryImg02 from "../assets/images/pizza.png"
 import foodCategoryImg03 from "../assets/images/bread.png"
+import WhyImg from '../assets/images/location.png'
 import "../styles/home.css"
 import ProductCart from "../components/UI/product-cart/ProductCart";
 const Home = () => {
   const [category, setCategory] = useState('All')
   const [allProducts, setAllProducts] = useState(products)
+  const [hottPizza, setHottPizza] = useState([])
+
+  useEffect(() => {
+    const filteredPizza = products.filter((item) => item.category === "Pizza")
+    const slicePizza = filteredPizza.slice(0, 4)
+    setHottPizza(slicePizza)
+},[])
   useEffect(() => {
     if (category === "All") {
       setAllProducts(products)
@@ -144,6 +152,58 @@ const Home = () => {
                 <ProductCart item={item} />
               </Col>
             ))}
+          </Row>
+        </Container>
+      </section>
+      <section>
+        <Container>
+          <Row>
+            <Col lg="6" md="6">
+              <img className="w-100" src={WhyImg} alt="why tasty treat" />
+            </Col>
+            <Col lg="6" md="6">
+              <div className="why__tasty-treat">
+                <h2 className="tasty__treat-title">Why tasty Treat ?</h2>
+           <p className="tasty__treat-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates praesentium dolor sed distinctio unde modi.</p>
+                <ListGroup className="mt-5">
+                  <ListGroupItem className="border-0 ps-0">
+                    <p className="d-flex align-items-center gap-2 choose__us-title">
+                      <i className="ri-checkbox-circle-line"></i>Fresher and tasty food
+                    </p>
+                    <p className="tasty__treat-desc d-flex align-items-center gap-2 ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, commodi?</p>
+                  </ListGroupItem>
+                    <ListGroupItem className="border-0 ps-0">
+                    <p  className="d-flex align-items-center gap-2 choose__us-title">
+                      <i className="ri-checkbox-circle-line"></i>Quantity support
+                    </p>
+                      <p className="tasty__treat-desc d-flex align-items-center gap-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, commodi?</p>
+                  </ListGroupItem>
+                    <ListGroupItem className="border-0 ps-0">
+                    <p  className="d-flex align-items-center gap-2 choose__us-title">
+                      <i className="ri-checkbox-circle-line"></i>Order from any location
+                    </p>
+                      <p className="tasty__treat-desc d-flex align-items-center gap-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, commodi?</p>
+                  </ListGroupItem>
+             </ListGroup>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      <section className="pt-0">
+        <Container>
+          <Row>
+            <Col lg="12" className="text-center mb-5">
+             
+            </Col>
+             <h2>Hot Pizza</h2>
+              {hottPizza.map((item) => (
+                <Col lg="3" md="4" key={item.id}>
+                  <ProductCart item={item}/>
+              </Col>
+              ))}
+
           </Row>
         </Container>
       </section>

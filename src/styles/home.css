@@ -20,3 +20,17 @@
     background: #fff !important;
     border-radius: 5px;
 }
+
+.tasty__treat-title span{
+    color:#df2020
+}
+.why__tasty-desc{
+    color: #777;
+    line-height: 28px;
+}
+
+.choose__us-title{
+    font-weight: 500 !important;
+    color: #df2020;
+}
+
