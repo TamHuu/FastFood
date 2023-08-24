@@ -5,7 +5,12 @@
     cursor: pointer;
     transition: 0.4s;
 }
-
+@media only screen and ( max-width:768px) {
+    .category__item {      
+            padding: 10px 5px;
+        
+        }
+}
 .category__item:hover{
     transform: translateY(-15px);
 }
