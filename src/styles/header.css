@@ -66,8 +66,13 @@
 
 .cart__icon {
     position: relative;
+
 }
 
+.cart__icon :hover {
+    color: blue;
+    cursor: pointer;
+}
 .cart__badge {
     position: absolute;
     top: 30px;
