@@ -1,10 +1,8 @@
-import React from 'react'
+import React from "react";
 
-function Helmet(props) {
-    document.title ="Food ordering app -" + props.title
-  return (
-      <div className='w-100'>{ props.children}</div>
-  )
-}
+const Helmet = (props) => {
+  document.title = "My Pizza -" + props.title;
+  return <div className="w-100">{props.children}</div>;
+};
 
-export default Helmet
+export default Helmet;
