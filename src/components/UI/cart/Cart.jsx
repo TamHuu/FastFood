@@ -12,7 +12,7 @@ function Cart() {
     }
 
     const cartProducts = useSelector(state => state.cart.cartItems)
-    console.log(">>>>>>cart",cartProducts);
+
     return (
         <div className='cart__container'>
             <ListGroup className='cart'>

@@ -7,7 +7,6 @@ import products from '../assets/fake-data/products'
 import { useParams } from 'react-router-dom'
 function FoodDetails() {
   const { id } = useParams();
-
   const product = products.find((product) => product.id === id);
   const [previewImg, setPreviewImg] = useState(product?.image01);
   const { title, price, desc, category } = product
@@ -17,9 +16,7 @@ function FoodDetails() {
     setPreviewImg(product.image01)
   }, [product])
   useEffect(() => { window.scrollTo(0, 0) }, [product])
-  const submitHandler = (e) => {
-    e.prevenDefault()
-  }
+ 
   return (
     <Helmet title="product-detail">
       <CommonSection title={title} />
@@ -70,7 +67,7 @@ function FoodDetails() {
 
                   </div>
             
-                  <form className="form" onSubmit={(e)=>submitHandler(e)}>
+                  <form className="form" >
 
                     <div className="form__group">
                       <input type="text" name="" id="" placeholder='Enter your name' />

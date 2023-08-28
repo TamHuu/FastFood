@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import Helmet from "../components/Helmet/Helmet"
 import CommonSection from '../components/UI/common-section/CommonSection'
 import { Container, Row, Col } from 'reactstrap'
@@ -8,8 +8,15 @@ import "../styles/all-foods.css"
 import ReactPaginate from "react-paginate"
 import "../styles/paginate.css"
 
+import { useNavigate } from 'react-router-dom'
+
+
 function AllFood() {
-   
+  const navigate = useNavigate();
+  
+
+
+ 
   const [searchTerm, setSearchTerm] = useState('')
   const [pageNumber, setPageNumber] = useState(0)
   const searchedProduct = products
@@ -25,6 +32,10 @@ function AllFood() {
     setPageNumber(selected)
   }
 
+  const handlerCartDetail = () =>
+  {
+    navigate('/home')
+    }
   return (
     <Helmet title="All Foods">
       <CommonSection title="All Foods" />
@@ -55,6 +66,8 @@ function AllFood() {
                 </Col>
 
               ))}
+            
+            
             <div>
               <ReactPaginate
                 pageCount={pageCount}

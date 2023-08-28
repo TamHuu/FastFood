@@ -25,7 +25,7 @@ const Checkout = () => {
 
     }
     shippingInfo.push(userShippingAdress)
-    console.log("shippingInfo",shippingInfo);
+  
   }
   return (
     <Helmet title="Checkout">
