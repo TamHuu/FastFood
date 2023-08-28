@@ -34,8 +34,11 @@ function Cart() {
 
                 </div>
                 <div className="cart__bottom d-flex justify-content-between align-items-center">
-                    <h6 >Subtotal amount:<span>{ cartProducts.totalPrice}</span></h6>
-                    <button>
+                    {cartProducts.map((item) => (
+                         
+                    <h6  key={item.id}>Subtotal amount:   <span>${ item.totalPrice}</span></h6>
+                     ))}
+                    <button className="addTOCart__btn">
                         <Link to="/checkout"> Check out</Link>
                     </button>
                 </div>

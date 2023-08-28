@@ -1,19 +1,16 @@
 import React from 'react'
 import "../../../styles/product-cart.css"
-import { useDispatch } from 'react-redux'
-import {cartActions} from "../../../store/shopping-cart/cartSlice"
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 function ProductCart(props) {
+    const navigate = useNavigate();
   const { id, title, image01, price } = props.item
-  const dispatch = useDispatch()
-  const addToCart = () => {
-    dispatch(cartActions.addItem({
-      id,
-      title,
-      image01,
-      price,
-    }))
-  }
+
+  
+  const handleDetail = () => {
+    navigate(`/foods/${id}`);
+  };
+
   return (
       <div className='product__item'>
           <div className="product__img">
@@ -25,7 +22,10 @@ function ProductCart(props) {
                   <span className="product__price">
                     ${price}
                   </span>
-                  <button onClick={addToCart} className="addTOCART__btn ">Add to Cart</button>
+      <button onClick={() => { handleDetail(); }} className="addTOCART__btn">
+Add To Cart
+</button>
+
               </div>
           </div>
     </div>

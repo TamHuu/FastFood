@@ -8,15 +8,11 @@ import "../styles/all-foods.css"
 import ReactPaginate from "react-paginate"
 import "../styles/paginate.css"
 
-import { useNavigate } from 'react-router-dom'
 
 
 function AllFood() {
-  const navigate = useNavigate();
-  
 
 
- 
   const [searchTerm, setSearchTerm] = useState('')
   const [pageNumber, setPageNumber] = useState(0)
   const searchedProduct = products
@@ -32,10 +28,6 @@ function AllFood() {
     setPageNumber(selected)
   }
 
-  const handlerCartDetail = () =>
-  {
-    navigate('/home')
-    }
   return (
     <Helmet title="All Foods">
       <CommonSection title="All Foods" />
@@ -66,8 +58,6 @@ function AllFood() {
                 </Col>
 
               ))}
-            
-            
             <div>
               <ReactPaginate
                 pageCount={pageCount}

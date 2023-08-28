@@ -5,14 +5,26 @@ import CommonSection from '../components/UI/common-section/CommonSection'
 import { Col, Container, Row } from 'reactstrap'
 import products from '../assets/fake-data/products'
 import { useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import {cartActions} from "../store/shopping-cart/cartSlice"
 function FoodDetails() {
-  const { id } = useParams();
+    const { id } = useParams();
   const product = products.find((product) => product.id === id);
   const [previewImg, setPreviewImg] = useState(product?.image01);
   const { title, price, desc, category } = product
   const [tab, setTab] = useState("desc")
 
-  useEffect(() => {
+    const dispatch = useDispatch()
+  const addToCart = () => {
+    dispatch(cartActions.addItem({
+      id,
+      title,
+      image01:previewImg,
+      price,
+    }))
+  }
+
+  useEffect(() => { 
     setPreviewImg(product.image01)
   }, [product])
   useEffect(() => { window.scrollTo(0, 0) }, [product])
@@ -48,7 +60,7 @@ function FoodDetails() {
                 <h2 className="product__title">{title}</h2>
                 <p className="product__price">Price: <span>${price}</span></p>
                 <p className=' category'>Category: <span>{category}</span></p>
-                <button className='addTOCART__btn '>Add to CART</button>
+                <button className='addTOCART__btn ' onClick={addToCart}>Add to CART</button>
               </div>
             </Col>
             <Col lg="12" md="12" className='container__tab'>
