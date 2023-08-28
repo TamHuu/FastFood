@@ -1,11 +1,12 @@
 import React,{useRef} from 'react'
 import { Container } from 'reactstrap'
 import logo from "../../assets/images/res-logo.png"
-import {NavLink,Link} from 'react-router-dom'
+import {NavLink,Link, useNavigate} from 'react-router-dom'
 import "../../styles/header.css"
 import { useDispatch, useSelector } from 'react-redux'
 import {cartUiActions} from '../../store/shopping-cart/cartUiSlice'
 function Header() {
+  const navigate = useNavigate()
   const totalQuantity = useSelector(state=>state.cart.totalQuantity)
   const menuRef = useRef()
   const dispatch = useDispatch()
@@ -36,7 +37,7 @@ function Header() {
     <header className="header">
       <Container>
         <div className="nav__wrapper d-flex align-items-center justify-content-between">
-          <div className="logo">
+          <div className="logo" onClick={() => navigate("/home")}>
             <img src={logo} alt="" />
             <h5>Tasty Treat</h5>
           </div>

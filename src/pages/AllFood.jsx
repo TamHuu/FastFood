@@ -7,12 +7,13 @@ import ProductCard from "../components/UI/product-cart/ProductCart"
 import "../styles/all-foods.css"
 import ReactPaginate from "react-paginate"
 import "../styles/paginate.css"
+
 function AllFood() {
+   
   const [searchTerm, setSearchTerm] = useState('')
   const [pageNumber, setPageNumber] = useState(0)
   const searchedProduct = products
     ?.filter((item) => {
-      if (searchTerm.value === "") return item;
       if (item.title.toLowerCase().includes(searchTerm.toLowerCase()))
         return item;
     })
@@ -23,6 +24,7 @@ function AllFood() {
   const changePage = ({ selected }) => {
     setPageNumber(selected)
   }
+
   return (
     <Helmet title="All Foods">
       <CommonSection title="All Foods" />

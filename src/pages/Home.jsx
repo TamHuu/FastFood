@@ -63,6 +63,8 @@ const Home = () => {
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam expedita aut nulla."
     }
   ]
+
+  
   return (
     <Helmet title="Home">
       <section>
@@ -202,7 +204,7 @@ const Home = () => {
              <h2>Hot Pizza</h2>
               {hottPizza.map((item) => (
                 <Col lg="3" md="4" key={item.id}>
-                  <ProductCart item={item}/>
+                  <ProductCart item={item} />
               </Col>
               ))}
 

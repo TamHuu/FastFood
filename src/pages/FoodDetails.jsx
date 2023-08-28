@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../styles/product-detail.css"
 import Helmet from '../components/Helmet/Helmet'
 import CommonSection from '../components/UI/common-section/CommonSection'
@@ -7,13 +7,19 @@ import products from '../assets/fake-data/products'
 import { useParams } from 'react-router-dom'
 function FoodDetails() {
   const { id } = useParams();
+
   const product = products.find((product) => product.id === id);
-  // console.log(">>>Check product", product);
   const [previewImg, setPreviewImg] = useState(product?.image01);
-  // console.log(">>>Check prveuew", product);
   const { title, price, desc, category } = product
   const [tab, setTab] = useState("desc")
-  console.log(">>check tab0",tab);
+
+  useEffect(() => {
+    setPreviewImg(product.image01)
+  }, [product])
+  useEffect(() => { window.scrollTo(0, 0) }, [product])
+  const submitHandler = (e) => {
+    e.prevenDefault()
+  }
   return (
     <Helmet title="product-detail">
       <CommonSection title={title} />
@@ -64,7 +70,7 @@ function FoodDetails() {
 
                   </div>
             
-                  <form className="form">
+                  <form className="form" onSubmit={(e)=>submitHandler(e)}>
 
                     <div className="form__group">
                       <input type="text" name="" id="" placeholder='Enter your name' />
@@ -75,7 +81,7 @@ function FoodDetails() {
                     <div className="form__group">
                       <textarea rows={5} type="text" placeholder='Enter your name' />
                     </div>
-                    <button type='submit' className='submit'>Submit</button>
+                    <button type='submit'  className='submit'>Submit</button>
                   </form>
 
                 </div>
