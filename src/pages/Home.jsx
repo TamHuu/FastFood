@@ -138,7 +138,7 @@ const Home = () => {
               <h2>Popular Foods</h2>
             </Col>
             <Col lg="12">
-              <div className="food__category  align-items-center justify-content-center gap-5">
+              <div className="food__category  align-items-center justify-content-center">
                 <button className={`all__btn  ${category === "All" ? "foodBtnActive" : ""}`} onClick={()=>setCategory("All")}>All</button>
                 <button className={`d-flex align-items-center gap-2 ${category==="Burger"?"foodBtnActive":""}`} onClick={() => setCategory("Burger")}>
                   <img src={foodCategoryImg01} alt="" />Burger

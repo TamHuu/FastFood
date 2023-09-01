@@ -5,6 +5,7 @@
     padding: 20px 0px;
     border-radius: 8px;
     display: flex;
+    gap:5px
 }
 
 .food__category button {
@@ -52,6 +53,11 @@
 }
 
 @media only screen and (max-width:576px) {
+    .food__category {
+            display: grid;
+            flex-direction: column;
+    
+        }
     .hero__content {
         text-align: center;
     }
@@ -89,11 +95,11 @@
         margin-bottom: 0;
         ;
     }
-.food__category {
+   .food__category {
  display: grid;
  flex-direction: column;
     
-}
+    }
         .food__category button{
             padding:5px 15px;
             font-size: 0.7rem;

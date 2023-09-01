@@ -4,19 +4,17 @@ import CommonSection from '../components/UI/common-section/CommonSection'
 import { Col, Container, Row } from 'reactstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import "../styles/form.css"
-import { useDispatch, useSelector } from 'react-redux'
-import { loginUser } from '../store/auth/userSlice'
+import { useDispatch } from 'react-redux'
+import { loginUser } from '../store/apiRequest'
+
 function Login() {
   // State
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  console.log(">>> email pass", {
-    email: email,
-    password:password
-  });
+
 
   //redux state
-  const {loading,error} = useSelector((state)=>state.user)
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -26,15 +24,9 @@ function Login() {
     let userCredentials = {
       email, password
     }
-    dispatch(loginUser(userCredentials).then((result) => {
-      if (result.payload) {
-        setEmail('');
-        setPassword('')
-        navigate("/")
-      }
-    }))
+    dispatch(loginUser(userCredentials,dispatch,navigate))
   }
-  console.log(">>> check data",onSubmitLogin);
+
   return (
     <Helmet title="Login">
       <CommonSection title="Login" />
@@ -49,15 +41,9 @@ function Login() {
                 <div className="form__group">
                   <input type="password" placeholder='Password' required value={password} onChange={(e) => setPassword(e.target.value)} /></div>
                 <button type="submit" className='addTOCart__btn'>
-                  {loading? "Loading...":"Login"}
+               Login
                 </button>
-                {
-                  error && (
-                    <div className='alert alert-danger' role='alert'>
-                      {error}
-                    </div>
-                  )
-                }
+             
               </form>
               <Link to="/register">
                 Already have an account? Create an account</Link>
